@@ -40,7 +40,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
 
   useEffect(() => {
     form.reset(currentUser);
-  }, [currentUser, form])
+  }, [currentUser, form]);
 
   return (
     <Form {...form}>
@@ -49,9 +49,9 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
         className="space-y-4 bg-gray-50 rounded-lg md:p-10"
       >
         <div>
-          <h2 className="text-2xl font-bold">User Proflie Form</h2>
+          <h2 className="text-2xl font-bold">Thông tin người dùng</h2>
           <FormDescription>
-            View and change your profile information here
+            Xem và thay đổi thông tin hồ sơ của bạn tại đây
           </FormDescription>
         </div>
 
@@ -73,11 +73,11 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Tên</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
               </FormControl>
-              <FormMessage/>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -88,11 +88,11 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
             name="addressLine1"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Address Line 1</FormLabel>
+                <FormLabel>Địa chỉ 1</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage/>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -102,11 +102,11 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
             name="city"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>City</FormLabel>
+                <FormLabel>Thành phố</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage/>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -116,11 +116,11 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
             name="country"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Country</FormLabel>
+                <FormLabel>Quốc gia</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage/>
+                <FormMessage />
               </FormItem>
             )}
           />
