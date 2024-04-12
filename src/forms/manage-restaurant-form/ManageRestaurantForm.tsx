@@ -12,41 +12,43 @@ import { Button } from "@/components/ui/button";
 import { Restaurant } from "@/types";
 import { useEffect } from "react";
 
-const formSchema = z.object({
-  restaurantName: z.string({
-    required_error: "tên nhà hàng không được để trống",
-  }),
-  city: z.string({
-    required_error: "tên thành phố không được để trống",
-  }),
-  country: z.string({
-    required_error: "tên quốc gia không được để trống",
-  }),
-  deliveryPrice: z.coerce.number({
-    required_error: "giá giao hàng không được để trống",
-    invalid_type_error: "phải là số hợp lệ",
-  }),
-  estimatedDeliveryTime: z.coerce.number({
-    required_error: "thời gian giao hàng ước tính không được để trống",
-    invalid_type_error: "phải là số hợp lệ",
-  }),
-  cuisines: z.array(z.string()).nonempty({
-    message: "vui lòng chọn ít nhất một mục",
-  }),
-  menuItems: z.array(
-    z.object({
-      name: z.string().min(1, "tên không được để trống"),
-      price: z.coerce.number().min(1, "giá không được để trống"),
-    })
-  ),
-  //imageUrl: z.string().optional(),
-  imageFile: z.instanceof(File, { message: "hình ảnh không được để trống" }),
-  //.optional(),
-});
-// .refine((data) => data.imageUrl || data.imageFile, {
-//   message: "Either image URL or image File must be provided",
-//   path: ["imageFile"],
-// });
+const formSchema = z
+  .object({
+    restaurantName: z.string({
+      required_error: "tên nhà hàng không được để trống",
+    }),
+    city: z.string({
+      required_error: "tên thành phố không được để trống",
+    }),
+    country: z.string({
+      required_error: "tên quốc gia không được để trống",
+    }),
+    deliveryPrice: z.coerce.number({
+      required_error: "giá giao hàng không được để trống",
+      invalid_type_error: "phải là số hợp lệ",
+    }),
+    estimatedDeliveryTime: z.coerce.number({
+      required_error: "thời gian giao hàng ước tính không được để trống",
+      invalid_type_error: "phải là số hợp lệ",
+    }),
+    cuisines: z.array(z.string()).nonempty({
+      message: "vui lòng chọn ít nhất một mục",
+    }),
+    menuItems: z.array(
+      z.object({
+        name: z.string().min(1, "tên không được để trống"),
+        price: z.coerce.number().min(1, "giá không được để trống"),
+      })
+    ),
+    imageUrl: z.string().optional(),
+    imageFile: z
+      .instanceof(File, { message: "hình ảnh không được để trống" })
+      .optional(),
+  })
+  .refine((data) => data.imageUrl || data.imageFile, {
+    message: "Either image URL or image File must be provided",
+    path: ["imageFile"],
+  });
 
 type RestaurantFormData = z.infer<typeof formSchema>;
 
@@ -114,7 +116,9 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
       );
     });
 
-    formData.append(`imageFile`, formDataJson.imageFile);
+    if (formDataJson.imageFile) {
+      formData.append(`imageFile`, formDataJson.imageFile);
+    }
 
     onSave(formData);
   };
