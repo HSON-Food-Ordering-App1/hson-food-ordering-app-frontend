@@ -20,8 +20,8 @@ const formSchema = z
     city: z.string({
       required_error: "tên thành phố không được để trống",
     }),
-    country: z.string({
-      required_error: "tên quốc gia không được để trống",
+    district: z.string({
+      required_error: "tên quận/huyện không được để trống",
     }),
     deliveryPrice: z.coerce.number({
       required_error: "giá giao hàng không được để trống",
@@ -95,7 +95,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
 
     formData.append("restaurantName", formDataJson.restaurantName);
     formData.append("city", formDataJson.city);
-    formData.append("country", formDataJson.country);
+    formData.append("district", formDataJson.district);
 
     formData.append(
       "deliveryPrice",

@@ -83,7 +83,7 @@ type UpdateMyUserRequest = {
   name: string;
   addressLine1: string;
   city: string;
-  country: string;
+  district: string;
 };
 
 export const useUpdateMyUser = () => {

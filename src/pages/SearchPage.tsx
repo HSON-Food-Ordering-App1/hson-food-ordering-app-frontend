@@ -2,20 +2,22 @@ import { useSearchRestaurants } from "@/api/RestaurantApi";
 import { useParams } from "react-router-dom";
 
 const SearchPage = () => {
-  const { city } = useParams();
-  const { results } = useSearchRestaurants(city);
+  const { district } = useParams();
+  const { results, isLoading } = useSearchRestaurants(district);
+
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+
+  if (!results?.data || !district) {
+    return <span>Không có kết quả nào được tìm thấy</span>;
+  }
 
   return (
-    <span>
-      Người dùng đã tìm kiếm {city}
-      <span>
-        {results?.data.map((restaurant) => (
-          <span>
-            found - {restaurant.restaurantName}, {restaurant.city}
-          </span>
-        ))}
-      </span>
-    </span>
+    <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
+      <div id="cuisines-list">Thêm món ăn ở đây :)</div>
+      <div id="main-content" className="flex flex-col gap-5"></div>
+    </div>
   );
 };
 

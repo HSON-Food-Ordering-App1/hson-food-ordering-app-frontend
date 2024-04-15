@@ -4,7 +4,7 @@ export type User = {
   name: string;
   addressLine1: string;
   city: string;
-  country: string;
+  district: string;
 };
 
 export type MenuItem = {
@@ -18,7 +18,7 @@ export type Restaurant = {
   user: string;
   restaurantName: string;
   city: string;
-  country: string;
+  district: string;
   deliveryPrice: number;
   estimatedDeliveryTime: number;
   cuisines: string[];

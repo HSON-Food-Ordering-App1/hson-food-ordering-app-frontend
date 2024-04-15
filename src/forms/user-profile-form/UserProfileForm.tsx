@@ -21,7 +21,7 @@ const formSchema = z.object({
   name: z.string().min(1, "Tên không được để trống"),
   addressLine1: z.string().min(1, "Địa chỉ không được để trống"),
   city: z.string().min(1, "Tên thành phố không được để trống"),
-  country: z.string().min(1, "Tên quốc gia không được để trống"),
+  district: z.string().min(1, "Tên quận/huyện không được để trống"),
 });
 
 type UserFormData = z.infer<typeof formSchema>;
@@ -99,10 +99,10 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
 
           <FormField
             control={form.control}
-            name="city"
+            name="district"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Thành phố</FormLabel>
+                <FormLabel>Quận/huyện</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
@@ -113,10 +113,10 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
 
           <FormField
             control={form.control}
-            name="country"
+            name="city"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Quốc gia</FormLabel>
+                <FormLabel>Thành phố</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>

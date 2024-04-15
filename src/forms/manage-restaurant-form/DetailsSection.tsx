@@ -35,10 +35,10 @@ const DetailsSection = () => {
       <div className="flex gap-4">
         <FormField
           control={control}
-          name="city"
+          name="district"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Thành phố</FormLabel>
+              <FormLabel>Quận/huyện</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
               </FormControl>
@@ -48,10 +48,10 @@ const DetailsSection = () => {
         />
         <FormField
           control={control}
-          name="country"
+          name="city"
           render={({ field }) => (
             <FormItem className="flex-1">
-              <FormLabel>Quốc gia</FormLabel>
+              <FormLabel>Thành phố</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
               </FormControl>
