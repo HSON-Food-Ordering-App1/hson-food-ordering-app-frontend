@@ -17,7 +17,6 @@ const SearchResultInfo = ({ total, district }: Props) => {
           Thay đổi địa điểm
         </Link>
       </span>
-      Insert sort dropdown here
     </div>
   );
 };
