@@ -24,7 +24,7 @@ const formSchema = z.object({
   district: z.string().min(1, "Tên quận/huyện không được để trống"),
 });
 
-type UserFormData = z.infer<typeof formSchema>;
+export type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
   currentUser: User;
