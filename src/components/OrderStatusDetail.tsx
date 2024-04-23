@@ -15,7 +15,7 @@ const OrderStatusDetail = ({ order }: Props) => {
           {order.deliveryDetails.addressLine1}, {order.deliveryDetails.district}
         </span>
       </div>
-      <div className="flex flex-cols">
+      <div className="flex flex-col">
         <span className="font-bold">Đơn hàng của bạn:</span>
         <ul>
           {order.cartItems.map((item) => (
