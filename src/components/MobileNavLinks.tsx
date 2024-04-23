@@ -11,7 +11,7 @@ const MobileNavLinks = () => {
         to="/order-status"
         className="flex bg-white items-center font-bold hover:text-orange-500"
       >
-        Tình trạng đặt hàng
+        Đơn hàng của tôi
       </Link>
       <Link
         to="/manage-restaurant"
