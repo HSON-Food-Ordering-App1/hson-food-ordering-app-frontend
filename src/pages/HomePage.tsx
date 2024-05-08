@@ -31,8 +31,8 @@ const HomePage = () => {
             Gọi món mang đi thậm chí còn nhanh hơn!
           </span>
           <span>
-            Tải xuống ứng dụng HSonEats để đặt hàng nhanh hơn và đề xuất được cá
-            nhân hóa
+            Tải xuống ứng dụng CUCTAKEats để đặt hàng nhanh hơn và đề xuất được
+            cá nhân hóa
           </span>
           <img src={appDownloadImage} />
         </div>
